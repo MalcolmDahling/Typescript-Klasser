@@ -1,5 +1,3 @@
 export interface IDataService{
-    function GetData(){
-        
-    }
+    GetData();
 }

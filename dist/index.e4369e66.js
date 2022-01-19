@@ -520,18 +520,21 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"5Hefq":[function(require,module,exports) {
 var _movie = require("../models/movie");
+var _mockMovieService = require("../services/MockMovieService");
 window.onload = function() {
     let main = new Main();
-    main.start();
+    let service = new _mockMovieService.MockMovieService();
+    main.start(service);
 };
 class Main {
-    start() {
+    start(service) {
         let movie = new _movie.Movie('namn', 'asdfasdfasdf');
         console.log(movie);
+        console.log(service.GetData());
     }
 }
 
-},{"../models/movie":"iSfLe"}],"iSfLe":[function(require,module,exports) {
+},{"../models/movie":"iSfLe","../services/MockMovieService":"2hjZ0"}],"iSfLe":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Movie", ()=>Movie
@@ -573,6 +576,17 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["jK8kY","5Hefq"], "5Hefq", "parcelRequire94c2")
+},{}],"2hjZ0":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "MockMovieService", ()=>MockMovieService
+);
+class MockMovieService {
+    GetData() {
+        return 'Mockdata från MockService';
+    }
+}
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["jK8kY","5Hefq"], "5Hefq", "parcelRequire94c2")
 
 //# sourceMappingURL=index.e4369e66.js.map
